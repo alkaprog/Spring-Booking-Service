@@ -25,6 +25,7 @@ public class RoomController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("rooms", roomService.findAll());
+        System.out.println("Sout");
         return "room/index";
     }
 

@@ -4,7 +4,6 @@ import com.example.bookingservice.models.Guest;
 import com.example.bookingservice.repositories.GuestRepository;
 import com.example.bookingservice.security.GuestDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -59,5 +58,13 @@ public class GuestService implements UserDetailsService {
             throw new UsernameNotFoundException("User not Found");
         }
         return new GuestDetails(guest.get());
+    }
+
+    public boolean guestExist(String username) {
+        Optional<Guest> guest = guestRepository.findByEmail(username);
+        if (guest.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }
