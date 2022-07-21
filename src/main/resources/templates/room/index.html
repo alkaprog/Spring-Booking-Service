@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../static/style/css/index.css"/>
+</head>
+<body>
+<div class="room-list" th:each="room : ${rooms}">
+    <a class="room-card" th:id="@{${room.getId()}}">
+        <div class="room-area">Area:
+            <div th:text="${room.getArea()}"></div>
+        </div>
+        <div class="guest-count">Guest count:
+            <div th:text="${room.getMaxGuestCount()}"></div>
+        </div>
+        <div class="has-aircondition">Has air condition:
+            <div th:text="${room.isHasAirCondition()}"></div>
+        </div>
+    </a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/room/new">Create new room</a>
+
+</body>
+</html>

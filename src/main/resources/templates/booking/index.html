@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="booking" th:each="booking : ${bookings}">
+    <a class="booking-card" th:id="@{${booking.getId()}}">
+        <div class="person-id">Person Id:
+            <div th:text="${booking.getGuestId()}"></div>
+        </div>
+        <div class="room-id">Room Id:
+            <div th:text="${booking.getRoomId()}"></div>
+        </div>
+    </a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/booking/new">Create new booking</a>
+
+</body>
+</html>

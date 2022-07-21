@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Booking</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/booking}" th:object="${booking}">
+    <label for="guestId">Guest id: </label>
+    <input type="text" th:field="*{guestId}" id="guestId"/>
+    <div style="color:red" th:if="${#fields.hasErrors('guestId')}" th:errors="*{guestId}">guestId Error</div>
+    <br/>
+    <label for="roomId">Room id: </label>
+    <input type="text" th:field="*{roomId}" id="roomId"/>
+    <div style="color:red" th:if="${#fields.hasErrors('roomId')}" th:errors="*{roomId}">roomId Error</div>
+    <br/>
+    <label for="bookingBegin">Begin: </label>
+    <input type="date" th:field="*{bookingBegin}" id="bookingBegin"/>
+    <div style="color:red" th:if="${#fields.hasErrors('bookingBegin')}" th:errors="*{bookingBegin}">Name Error</div>
+    <br/>
+    <label for="bookingEnd">End: </label>
+    <input type="date" th:field="*{bookingEnd}" id="bookingEnd"/>
+    <div style="color:red" th:if="${#fields.hasErrors('bookingEnd')}" th:errors="*{bookingEnd}">Name Error</div>
+    <br/>
+
+
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

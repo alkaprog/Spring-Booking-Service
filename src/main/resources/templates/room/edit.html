@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit the room</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/room/{id}(id=${room.getId()})}"th:object="${room}">
+    <label for="maxGuestCount">Max guest number: </label>
+    <input type="text" th:field="*{maxGuestCount}" id="maxGuestCount"/>
+    <div style="color:red" th:if="${#fields.hasErrors('maxGuestCount')}" th:errors="*{maxGuestCount}">Name Error</div>
+    <br/>
+
+    <label for="area">Area: </label>
+    <input type="text" th:field="*{area}" id="area"/>
+    <div style="color:red" th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Area Error</div>
+    <br/>
+
+    <label for="hasAirCondition">Air condition: </label>
+    <input type="checkbox" th:field="*{hasAirCondition}" id="hasAirCondition"/>
+    <div style=" color:red" th:if="${#fields.hasErrors('hasAirCondition')}" th:errors="*{hasAirCondition}">Email Error</div>
+    <br/>
+
+    <label for="pricePerNight">Price: </label>
+    <input type="text" th:field="*{pricePerNight}" id="pricePerNight"/>
+    <div style=" color:red" th:if="${#fields.hasErrors('pricePerNight')}" th:errors="*{pricePerNight}">Email Error</div>
+    <br/>
+
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

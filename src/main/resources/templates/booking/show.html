@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Booking</title>
+</head>
+<body>
+<div class="booking-card">
+    <div class="room-id">Room id:
+        <div th:text="${booking.getRoomId()}"></div>
+    </div>
+    <div class="guest-id">Guest id:
+        <div th:text="${booking.getGuestId()}"></div>
+    </div>
+</div>
+<form th:method="DELETE" th:action="@{/booking/{id}(id=${booking.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

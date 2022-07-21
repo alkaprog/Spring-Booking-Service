@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<div class="room-card">
+    <div class="room-area">Area:
+        <div th:text="${room.getArea()}"></div>
+    </div>
+    <div class="guest-count">Guest count:
+        <div th:text="${room.getMaxGuestCount()}"></div>
+    </div>
+    <div class="has-aircondition">Has air condition:
+        <div th:text="${room.isHasAirCondition()}"></div>
+    </div>
+</div>
+<form th:method="DELETE" th:action="@{/room/{id}(id=${room.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>
