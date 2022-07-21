@@ -30,12 +30,27 @@ public class Guest {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "role")
+    private String role;
+
     public Guest() {
 
     }
-    public Guest(String name, int age) {
+
+    public Guest(String name, int age, String email, String role) {
         this.name = name;
         this.age = age;
+        this.email = email;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getPassword() {
