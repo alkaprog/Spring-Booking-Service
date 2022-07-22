@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../../static/style/css/index.css"/>
+    <link th:href="@{/style/css/room.css}" rel="stylesheet"/>
 </head>
 <body>
+<h1 class="title">Доступные номера:</h1>
 <div class="room-list" th:each="room : ${rooms}">
-    <a class="room-card" th:id="@{${room.getId()}}">
-        <div class="room-area">Area:
+    <a class=" room-card" th:id="@{${room.getId()}}"  onclick="roomClickHandler(this.id)">
+        <div class="room-property room-area">
+            <div>Area:</div>
             <div th:text="${room.getArea()}"></div>
         </div>
-        <div class="guest-count">Guest count:
+        <div class="room-property guest-count">
+            <div>Guest count:</div>
             <div th:text="${room.getMaxGuestCount()}"></div>
         </div>
-        <div class="has-aircondition">Has air condition:
+        <div class="room-property has-aircondition">
+            <div>Has air condition:</div>
             <div th:text="${room.isHasAirCondition()}"></div>
         </div>
     </a>
@@ -24,6 +28,6 @@
 <hr/>
 
 <a href="/room/new">Create new room</a>
-
+<script type="text/javascript" th:src="@{/js/room.js}"></script>
 </body>
 </html>
